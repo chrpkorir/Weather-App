@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Card } from "semantic-ui-react";
+// import { Card } from "semantic-ui-react";
 
 const Weather = (props) =>{
     return(
         <div className="container">
-        <div className="cards">
+        <div className="cards pt-4">
             <h1>{props.city}, {props.country}</h1>
             <h5 className="py-4">
                 <i className={`wi ${props.weatherIcon} display-1`}></i>
