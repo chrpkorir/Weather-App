@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'weather-icons/css/weather-icons.css';
 import Form from "./Components/Form";
 import {Component} from 'react';
-import CounterWithNameAndUseEffect from "./Components/Hooks";
+
 
 
 const API_key = "32b751570a15881c46d72b1163e70a64";
@@ -25,7 +25,6 @@ class App extends Component {
             error: false
 
         };
-
 
         this.weatherIcon = {
             Thunderstorm: "wi-thunderstorm",
@@ -84,14 +83,15 @@ class App extends Component {
         const country = e.target.elements.country.value;
 
     if(city && country){
-        const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weater?q=${city},${country}&appid=${API_key}`)
+        const api_call = await fetch(
+            `https://api.openweathermap.org/data/2.5/weater?q=${city},${country}&appid=${API_key}`)
 
         const response = await api_call.json();
 
         console.log(response);
+
         this.setState({
-            city:response.name,
-            country:response.sys.country,
+            city:`${response.name},${response.sys.country}`,
             celsius: this.calCelsius(response.main.temp),
             temp_min:this.calCelsius(response.main.temp_min),
             temp_max:this.calCelsius(response.main.temp_max),
@@ -116,7 +116,7 @@ class App extends Component {
                     temp_max={this.state.temp_max}
                     description={this.state.description}
                 />
-               <CounterWithNameAndUseEffect/>
+
 
             </div>
         );
