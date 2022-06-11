@@ -18,3 +18,10 @@
 .flex-center{
     @apply flex justify-center items-center
 }
+.time-text-container{
+@apply flex items-center
+}
+
+.time-text{
+@apply font-medium text-base text-slate-900  mx-2
+}

@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { IconType } from 'react-icons';
+import { TiWeatherSunny } from 'react-icons/ti';
 import { useQuery } from 'react-query';
 import Weather from './components/Weather';
+
 
 
 
@@ -15,7 +18,7 @@ export default function App() {
 
 const API_key = "48353e3cf21d50140aa3d4c2e10a9e63";
 const [region, setRegion] = useState<Region>({country:"Kenya",city:"Nairobi"})
-const [icon, setIcon] = useState<string>("")
+
 
 
  
@@ -26,7 +29,7 @@ const { isLoading, error, data, isFetching } = useQuery("weather",
 console.log("data ==== ",data)
 if(isLoading){
   return (
-    <div className='h-screen w-screen bg-slate-300'>loading ...</div>
+  <div className='h-screen w-screen bg-slate-300'>loading ...</div>
   )
 }
 
