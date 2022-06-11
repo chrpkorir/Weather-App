@@ -6,14 +6,14 @@ import { useQuery } from 'react-query';
 
 interface Region{
   country: string;
-  ciry: string;
+  city: string;
 }
 
 
 export default function App() {
 
 const API_key = "32b751570a15881c46d72b1163e70a64";
-const [region, setRegion] = useState<Region>({country:"Kenya",ciry:"Nairobi"})
+const [region, setRegion] = useState<Region>({country:"Kenya",city:"Nairobi"})
 const [icon, setIcon] = useState<string>("")
 
 const api_call =()=> {
