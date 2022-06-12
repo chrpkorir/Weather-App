@@ -16,12 +16,71 @@
 
 
 .flex-center{
-    @apply flex justify-center items-center
-}
-.time-text-container{
-@apply flex items-center
+    @apply flex justify-center items-center 
 }
 
-.time-text{
-@apply font-medium text-base text-slate-900  mx-2
+/* temperature humidity */
+.temp-humidity{
+    @apply font-semibold text-base sm:text-lg text-slate-900 flex-col sm:flex  w-full
+    py-[3%] sm:pt-[1%]
+   }
+   
+.temp-humidity-mini{
+    @apply  text-slate-900 flex w-full
+   }
+
+.temperature{
+    @apply flex items-center w-full 
+    }
+.humidity{
+  @apply flex items-center w-full 
 }
+
+.temp-humidity-text{
+    @apply font-medium text-sm sm:text-base text-slate-900
+}
+
+/* descriptions */
+.description{
+    @apply flex w-full
+}
+
+.description-text{
+    @apply  text-base font-semibold text-slate-900
+    }
+
+
+   /*day date  */
+.day-date{
+ @apply font-bold text-base sm:text-lg text-slate-900 flex 
+   w-full  pt-[1%]
+}
+.day{
+    @apply flex items-center font-bold 
+}
+.date{
+    @apply flex items-center font-medium text-base 
+}
+
+.day-date-text{
+    @apply text-slate-900 
+    }
+
+
+    /* sunrise sunset */
+
+.sunrise-sunset{
+    @apply font-bold  text-base sm:text-lg text-slate-900 
+    flex h-[20%] w-full justify-between pt-[1%]
+   }
+
+  .sunrise{
+       @apply flex items-center w-full
+   }
+   .sunset{
+       @apply flex items-center w-full
+   }
+
+   .sunrise-sunset-text{
+    @apply font-medium text-sm sm:text-base text-slate-900 
+    }

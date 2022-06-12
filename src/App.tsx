@@ -1,14 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { IconType } from 'react-icons';
-import { TiWeatherSunny } from 'react-icons/ti';
 import { useQuery } from 'react-query';
+import { Form } from './components/Form';
 import Weather from './components/Weather';
 
 
 
 
-interface Region{
+export interface Region{
   country: string;
   city: string;
 }
@@ -16,14 +15,12 @@ interface Region{
 
 export default function App() {
 
-const API_key = "48353e3cf21d50140aa3d4c2e10a9e63";
+
 const [region, setRegion] = useState<Region>({country:"Kenya",city:"Nairobi"})
 
 
-
- 
-const { isLoading, error, data, isFetching } = useQuery("weather",
-()=>axios.get(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=48353e3cf21d50140aa3d4c2e10a9e63`)
+const { isLoading, error, data} = useQuery(["weather",region],
+()=>axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${region.city},${region.country}&APPID=${process.env.REACT_APP_API_KEY}`)
 .then((res) => res.data))  
   
 console.log("data ==== ",data)
@@ -33,10 +30,21 @@ if(isLoading){
   )
 }
 
+if(error){
+  console.log("error fetchig ====",error)
+  return (
+    // @ts-ignore
+  <div className='h-screen w-screen bg-slate-300'>{error.message}</div>
+  )
+}
 
 return (
-    <div className='h-screen w-screen bg-slate-300'>
-     <Weather weatherData={data}/>
+    <div className='h-screen w-screen bg-slate-300 '>
+    <div className='w-full flex-center fixed top-0 right-0 left-0 z-20 bg-slate-400'> 
+    <Form setRegion={setRegion}/> </div>
+    <div className='mt-20 '>  <Weather weatherData={data}/></div>
+    
+   
     </div>
   )
 }
